@@ -63,3 +63,22 @@ export const login = async (data) => {
   return res.data;
 };
 
+export const register = async (data) => {
+  const res = await api.post("/api/user/register/", data);
+  return res.data;
+};
+
+export const getClasses = async () => {
+  const res = await api.get("/api/class/");
+  return res.data;
+};
+
+export const getAuthenticatedUserDetails = async () => {
+  const res = await api.get("/api/userprofile/");
+  return res.data;
+};
+
+export const getCoursesForClass = async (class_id) => {
+  const res = await axios.get('/api/class/${class_id}/courses/');
+  return res.data;
+};
