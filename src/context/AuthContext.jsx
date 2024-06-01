@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../api";
+import { getAuthenticatedUserDetails } from "../api";
 import { useQuery } from "react-query";
 
 const AuthContext = createContext();
@@ -14,14 +15,14 @@ const fetchAuthState = async () => {
 };
 
 export const AuthProvider = ({ children }) => {
+  
+
   const {
     data: isAuthorized,
     isLoading,
     isError,
     refetch,
-  } = useQuery("auth", fetchAuthState, {
-    staleTime: 5 * 60 * 1000,
-  });
+  } = useQuery("auth", fetchAuthState);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {

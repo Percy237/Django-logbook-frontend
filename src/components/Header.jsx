@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { isAuthenticated, refetchAuthState } = useAuth();
 
-  console.log(isAuthenticated);
   return (
     <header className="flex justify-between items-center h-14 shadow-md p-3 w-full">
       <div className="flex justify-center items-center gap-x-1">

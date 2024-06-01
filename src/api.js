@@ -63,3 +63,40 @@ export const login = async (data) => {
   return res.data;
 };
 
+export const register = async (data) => {
+  const res = await api.post("/api/user/register/", data);
+  return res.data;
+};
+
+export const getClasses = async () => {
+  const res = await api.get("/api/class/");
+  return res.data;
+};
+
+export const getCoursesForAClass = async () => {
+  const res = await api.get("/api/class/courses/");
+  return res.data;
+};
+
+export const getAuthenticatedUserDetails = async () => {
+  const res = await api.get("/api/userprofile/");
+  return res.data;
+};
+
+export const getLogbookEntries = async (course_id) => {
+  const res = await api.get(`/api/courses/${course_id}/logbook-entries/`);
+  return res.data;
+};
+
+export const createLogbookEntry = async ({ course_id, formData }) => {
+  const res = await api.post(
+    `/api/courses/${course_id}/logbook-entries/`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
+  return res.data;
+};

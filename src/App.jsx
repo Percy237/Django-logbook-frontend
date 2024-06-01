@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Courses from "./pages/Courses";
+import Logbook from "./pages/Logbook";
 
 function Logout() {
   localStorage.clear();
@@ -47,11 +48,21 @@ function App() {
           }
         />
         <Route
-          path="/class/:class_id/courses"
+          path="/class/logbook/courses"
           element={
             <ProtectedRoute>
               <Layout>
                 <Courses />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/class/logbook/course/:course_id"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Logbook />
               </Layout>
             </ProtectedRoute>
           }
