@@ -100,3 +100,18 @@ export const createLogbookEntry = async ({ course_id, formData }) => {
   );
   return res.data;
 };
+
+export const getTeachers = async () => {
+  const res = await api.get("/api/teacher/");
+  return res.data;
+};
+
+export const createTeacherCourseHours = async ({ course_id, data }) => {
+  const res = await api.post(`/api/teacher-course-hour/${course_id}/`, data);
+  return res.data;
+};
+
+export const getTeacherCourseHours = async (course_id) => {
+  const res = await api.get(`/api/teacher-course-hour/${course_id}/`);
+  return res.data;
+};

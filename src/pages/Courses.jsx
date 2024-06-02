@@ -21,7 +21,7 @@ const Courses = () => {
               <Link
                 to={`/class/logbook/course/${course.id}`}
                 key={course.id}
-                className="bg-black text-white p-3 rounded-sm md:rounded-md xl:rounded-xl cursor-pointer text-center shadow-md"
+                className="bg-gray-900 hover:bg-black text-white p-3 rounded-sm md:rounded-md xl:rounded-xl cursor-pointer text-center shadow-md transform transition duration-300 hover:-translate-y-1 hover:scale-105"
               >
                 {course.name}
               </Link>
