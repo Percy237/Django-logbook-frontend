@@ -130,20 +130,24 @@ const Logbook = () => {
                   ))}
                 </ul>
               </div>
-              <div className="flex space-x-4 mt-4">
-                <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                  onClick={() => handleEdit(entry.id)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                  onClick={() => handleDelete(entry.id)}
-                >
-                  Delete
-                </button>
-              </div>
+              {isDelegate ? (
+                <div className="flex space-x-4 mt-4">
+                  <button
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    onClick={() => handleEdit(entry.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                    onClick={() => handleDelete(entry.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           ))
       ) : (
@@ -242,7 +246,7 @@ const Logbook = () => {
       )}
 
       {showHoursModal && (
-        <div className="fixed inset-0 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50  flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-96 p-6">
             <div className="mb-6">
               <h2 className="text-xl font-bold mb-4">Hours Taught</h2>
